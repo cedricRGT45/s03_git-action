@@ -12,17 +12,17 @@
 # });
 
 # le nom de l'action tel qu'il sera affiché dans l'onglet "action" de notre repo GitHub
-name: Deploy to github pages on push master
+name: Deploy to github pages on push main
 
 # spécifier l'évènement qui délcenche l'action
 on:
   push:
     branches:
-      - master
+      - main
   # permet de faire apparaître un bouton sur github onglet 'actions' pour la délcnecher à la main
   workflow_dispatch:
     branches:
-      - master
+      - main
 
 # on donne les permissions nécessaires à notre action
 permissions:
