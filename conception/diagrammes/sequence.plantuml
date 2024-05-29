@@ -1,0 +1,14 @@
+@startuml sequence ajout panier
+
+"Client" as C
+"Panier" as P
+
+C -> P : Ajouter un produit
+
+
+P -> P : Produit déjà dans le panier ?
+P -> P : OUI = on incrémente la qté
+P -> P : NON = on ajoute le produit au panier
+P -> C
+
+@enduml

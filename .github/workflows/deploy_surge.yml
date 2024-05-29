@@ -1,0 +1,35 @@
+name : Deploy to Surge on push master
+
+
+# déclencheur
+on:
+  push:
+    branches:
+      - master
+
+
+concurrency:
+  group: surge
+  cancel-on-progress: true
+
+
+jobs:
+
+  build_and_deploy:
+    environment: production
+    runs-on: ubuntu-latest
+    defaults:
+      shell: bash
+      working-directory: ./
+
+    steps:
+    # récup le code
+    - name : Fetch code
+      uses: actions/checkout@v4
+    # install deps
+    - names: Install dependencies
+      run: npm ci
+    # build code
+    - name: Build code
+      run : npm run build
+
